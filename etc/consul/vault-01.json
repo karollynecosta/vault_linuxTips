@@ -1,0 +1,12 @@
+{
+  "server": false,
+  "node_name": "vault03",
+  "datacenter": "dc1",
+  "data_dir": "/var/lib/consul/data",
+  "bind_addr": "172.31.35.164",
+  "client_addr": "0.0.0.0",
+  "retry_join": ["$IP_SERVIDOR_VAULT","$IP_SERVIDOR_VAULT_RESERVA"],
+  "log_level": "DEBUG",
+  "enable_syslog": true,
+  "acl_enforce_version_8": false
+}

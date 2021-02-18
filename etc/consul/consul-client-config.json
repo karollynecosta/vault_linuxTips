@@ -1,0 +1,13 @@
+/*Arquivo de config CLIENTE Consul  no vault*/
+{
+    "server": false,
+    "node_name": "vault03",
+    "datacenter": "dc1",
+    "data_dir": "/var/lib/consul/data",
+    "bind_addr": "$IP_SERVIDOR_CONSUL",
+    "client_addr": "0.0.0.0",    
+    "retry_join": ["$IP_SERV_VAULT"],  
+    "log_level": "DEBUG",
+    "enable_syslog": true,
+    "acl_enforce_version_8": false
+}

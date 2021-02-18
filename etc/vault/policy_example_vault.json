@@ -1,0 +1,12 @@
+/* https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2.html */
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": "ec2:*",
+              "Resource": "*"
+            }
+    ]
+  }

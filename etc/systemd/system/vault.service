@@ -1,0 +1,23 @@
+[Unit]
+Description=vault service
+Requires=network-online.target
+After=network-online.target
+ConditionFileNotEmpty=/etc/vault/config.hcl
+
+[Service]
+User=vault
+Group=vault
+Restart=on-failure
+ExecStartPre=-/bin/mkdir -p /var/lib/vault
+ExecStartPre=-/bin/chown -R vault:vault /var/lib/vault
+ExecStart=/usr/local/bin/vault server -config=/etc/vault/config.hcl -log-level=debug
+EnvironmentFile=-/etc/sysconfig/vault
+Environment=GOMAXPROCS=2
+StandardOutput=/var/logs/vault/output.log
+StandardError=/var/logs/vault/error.log
+LimitMEMLOCK=infinity
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target

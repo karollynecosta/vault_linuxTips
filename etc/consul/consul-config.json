@@ -1,0 +1,16 @@
+/*Arquivo de config Consul server*/
+{
+  "server": true,
+  "node_name": "consul01",
+  "datacenter": "dc1",
+  "data_dir": "/var/lib/consul/data",
+  "bind_addr": "0.0.0.0",
+  "client_addr": "0.0.0.0",
+  "advertise_addr": "$IP_LOCAL_SERVIDOR_CONSUL",
+  "bootstrap_expect": 3,
+  "retry_join": ["$IP_LOCAL_SERVIDOR", "$IP_SERVER_SECUNDARIO"],
+  "ui": true,
+  "log_level": "DEBUG",
+  "enable_syslog": true,
+  "acl_enforce_version_8": false
+}
